@@ -1,1 +1,1 @@
-# linear_regression_model
+My mission is to centralize access to services across Africa by leveraging digital platforms. However, limited internet adoption remains a major barrier to achieving this goal. This project addresses the problem by analyzing and predicting internet usage trends in Rwanda. The insights can help understand digital growth and support better planning for service accessibility.
