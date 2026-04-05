@@ -35,6 +35,10 @@ def predict_internet_users(year, cellular_subscription, broadband_subscription):
     y_pred = model.predict(X_scaled)
     return float(y_pred[0])
 
+@app.get("/")
+def root():
+    return {"message": "Rwanda Internet Users Prediction API is running"}
+
 @app.post("/predict")
 def predict(data: PredictionInput):
     try:
