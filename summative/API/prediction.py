@@ -22,7 +22,7 @@ app.add_middleware(
 
 # input fields match the features used during training
 class PredictionInput(BaseModel):
-    year: int = Field(..., ge=1998, le=2025)
+    year: int = Field(..., ge=1998, le=2030)
     cellular_subscription: float = Field(..., ge=0.0, le=5.0)
     broadband_subscription: float = Field(..., ge=0.0, le=5.0)
 

@@ -83,7 +83,7 @@ class _PredictionPageState extends State<PredictionPage> {
           'cellular_subscription': double.parse(_cellularController.text),
           'broadband_subscription': double.parse(_broadbandController.text),
         }),
-      ).timeout(const Duration(seconds: 60));
+      ).timeout(const Duration(seconds: 90));
 
       final data = jsonDecode(response.body);
 
@@ -100,7 +100,7 @@ class _PredictionPageState extends State<PredictionPage> {
       }
     } on TimeoutException {
       setState(() {
-        _result = 'Request timed out. The server may be waking up — please try again.';
+        _result = 'Server is waking up — wait 30 seconds and try again.';
         _isError = true;
       });
     } catch (e) {
@@ -192,7 +192,7 @@ class _PredictionPageState extends State<PredictionPage> {
                           ),
                           const SizedBox(height: 20),
 
-                          _buildLabel('Year', '1998 – 2025'),
+                          _buildLabel('Year', '1998 – 2030'),
                           const SizedBox(height: 6),
                           TextFormField(
                             controller: _yearController,
@@ -206,7 +206,7 @@ class _PredictionPageState extends State<PredictionPage> {
                               if (v == null || v.isEmpty) return 'Year is required';
                               final val = int.tryParse(v);
                               if (val == null) return 'Enter a valid year';
-                              if (val < 1998 || val > 2025) return 'Year must be between 1998 and 2025';
+                              if (val < 1998 || val > 2030) return 'Year must be between 1998 and 2030';
                               return null;
                             },
                           ),
