@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -82,7 +83,7 @@ class _PredictionPageState extends State<PredictionPage> {
           'cellular_subscription': double.parse(_cellularController.text),
           'broadband_subscription': double.parse(_broadbandController.text),
         }),
-      );
+      ).timeout(const Duration(seconds: 60));
 
       final data = jsonDecode(response.body);
 
@@ -98,6 +99,11 @@ class _PredictionPageState extends State<PredictionPage> {
           _isError = true;
         });
       }
+    } on TimeoutException {
+      setState(() {
+        _result = 'Request timed out. The server may be waking up — please try again.';
+        _isError = true;
+      });
     } catch (e) {
       setState(() {
         _result = 'Failed to connect to the server. Check your internet connection.';
