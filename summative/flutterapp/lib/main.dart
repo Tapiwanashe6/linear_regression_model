@@ -90,7 +90,7 @@ class _PredictionPageState extends State<PredictionPage> {
       if (response.statusCode == 200) {
         setState(() {
           _result =
-              '${data['predicted_internet_users'].toString()} users';
+              '${data['predicted_internet_users'].toString()} users\n\n(Year: ${_yearController.text}, Cellular: ${_cellularController.text}, Broadband: ${_broadbandController.text})';
           _isError = false;
         });
       } else {
