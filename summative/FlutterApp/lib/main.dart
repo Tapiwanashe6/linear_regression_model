@@ -158,7 +158,7 @@ class _PredictionPageState extends State<PredictionPage> {
                     Text(
                       'Enter the values below to predict internet usage',
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.85),
+                        color: Colors.white.withValues(alpha: 0.85),
                         fontSize: 14,
                       ),
                     ),

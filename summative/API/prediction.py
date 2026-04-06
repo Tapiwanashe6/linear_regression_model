@@ -14,10 +14,10 @@ app = FastAPI(title="Rwanda Internet Users Prediction API", version="1.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://linear-regression-model-2-f5pb.onrender.com"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["POST", "GET"],
+    allow_headers=["Content-Type"],
 )
 
 # input fields match the features used during training
